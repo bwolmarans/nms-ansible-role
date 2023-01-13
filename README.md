@@ -28,4 +28,5 @@ There are 4 roles defined in this project (located in `roles` directory):
 6. Then run `ansible-playbook -i inventory nms-and-agent-install-example.yml`, this does not do the license or ACM, you will do that next
 7. `ansible-playbook -i inventory install-just-license.yml`
 8. `ansible-playbook -i inventory install-just-acm.yml`
+9. Now, go and log into NMS using admin/(you know the password!) and try out NIM and ACM
  
