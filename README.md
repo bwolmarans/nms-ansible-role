@@ -1,4 +1,4 @@
-# Ansible Playbook for NGINX Instance Manager and NGINX Agent Install
+# Ansible Playbook and example for NMS, NGINX, NGINX Agent, and ACM
 
 This is an example playbook that uses roles defined in this project for installing NGINX Management Suite (NMS) and NGINX+, and NGINX Agent. It also will install an NMS license, and will install API Connectivity Manager (ACM).
 
