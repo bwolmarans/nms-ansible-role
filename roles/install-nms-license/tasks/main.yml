@@ -1,16 +1,18 @@
 ---
+
   - name: PUT NMS license
     vars:
       # base64 encoded, one line, no line endings or carrage returns
-      license: "{{ lookup('file', {{nms_license_file}}) | b64encode }}"
+      license: "{{ lookup('file', nms_license_file) | b64encode }}"
+      nms_fqdn: "{{ groups.nginx_management_suite_hosts[0] }}"
 
     uri:
       url: "https://{{nms_fqdn}}/api/platform/v1/license"
       method: PUT
 
       force_basic_auth: yes
-      user: "{{admin_email}}"
-      password: "{{admin_password}}"
+      user: "{{nms_admin_email}}"
+      password: "{{nms_password}}"
 
       body:
         desiredState:
@@ -29,11 +31,13 @@
     register: controller_response
 
   - name: GET NMS license status
+    vars:
+      nms_fqdn: "{{ groups.nginx_management_suite_hosts[0] }}"
     uri:
       url: "https://{{nms_fqdn}}/api/platform/v1/license"
       method: GET
-      user: "{{admin_email}}"
-      password: "{{admin_password}}"
+      user: "{{nms_admin_email}}"
+      password: "{{nms_password}}"
       force_basic_auth: yes
       status_code: 200
       validate_certs: false
