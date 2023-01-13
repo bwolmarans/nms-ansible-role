@@ -1,0 +1,40 @@
+---
+  - name: PUT NMS license
+    vars:
+      # base64 encoded, one line, no line endings or carrage returns
+      license: "{{ lookup('file', {{nms_license_file}}) | b64encode }}"
+
+    uri:
+      url: "https://{{nms_fqdn}}/api/platform/v1/license"
+      method: PUT
+
+      force_basic_auth: yes
+      user: "{{admin_email}}"
+      password: "{{admin_password}}"
+
+      body:
+        desiredState:
+          content: "{{ license }}"
+        metadata:
+          name: "license"
+      body_format: json
+
+      headers:
+        Content-Type: application/json
+        accept: application/json
+
+      return_content: yes
+      status_code: 200
+      validate_certs: false
+    register: controller_response
+
+  - name: GET NMS license status
+    uri:
+      url: "https://{{nms_fqdn}}/api/platform/v1/license"
+      method: GET
+      user: "{{admin_email}}"
+      password: "{{admin_password}}"
+      force_basic_auth: yes
+      status_code: 200
+      validate_certs: false
+    register: controller_license

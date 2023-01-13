@@ -1,0 +1,10 @@
+---
+- name: Install NMS License
+  hosts: nginx_management_suite_hosts
+  vars_files:
+    - vars/nms-vars.yml
+
+  tasks:
+    - ansible.builtin.include_role:
+        name: install-nms-license
+

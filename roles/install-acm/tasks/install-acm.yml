@@ -1,0 +1,111 @@
+---
+# this is designed to be a task within the ansible role for installing ACM
+
+#sudo systemctl enable nms
+#sudo systemctl enable nms-core
+#sudo systemctl enable nms-dpm
+#sudo systemctl enable nms-ingestion
+#sudo systemctl enable nms-integrations
+#sudo systemctl enable nms-acm
+
+# do the basic install
+
+  - name: apt-update
+    become: true
+    apt:
+      update-cache: true
+
+  - name: install acm using apt
+    become: true
+    apt:
+      name: nms-api-connectivity-manager
+      state: present
+
+# enable all the things that are not already enabled
+
+  - name: systemctl enable nms
+    become: true
+    systemd:
+      name: nms
+      enabled: yes
+
+  - name: systemctl enable nms-core
+    become: true
+    systemd:
+      name: nms-core
+      enabled: yes
+
+  - name: systemctl enable nms-dpm
+    become: true
+    systemd:
+      name: nms-dpm
+      enabled: yes
+
+  - name: systemctl enable nms-ingestion
+    become: true
+    systemd:
+      name: nms-ingestion
+      enabled: yes
+
+  - name: systemctl enable nms-integrations
+    become: true
+    systemd:
+      name: nms-integrations
+      enabled: yes
+
+  - name: systemctl enable nms-acm
+    become: true
+    systemd:
+      name: nms-acm
+      enabled: yes
+
+
+#sudo systemctl start nms
+#sudo systemctl start nms-core
+#sudo systemctl start nms-dpm
+#sudo systemctl start nms-ingestion
+#sudo systemctl start nms-integrations
+#sudo systemctl start nms-acm
+
+
+  - name: systemctl restart nms
+    become: true
+    systemd:
+      name: nms
+      state: restarted
+
+  - name: systemctl restart nms-core
+    become: true
+    systemd:
+      name: nms-core
+      state: restarted
+
+  - name: systemctl restart nms-dpm
+    become: true
+    systemd:
+      name: nms-dpm
+      state: restarted
+
+  - name: systemctl restart nms-ingestion
+    become: true
+    systemd:
+      name: nms-ingestion
+      state: restarted
+
+  - name: systemctl restart nms-integrations
+    become: true
+    systemd:
+      name: nms-integrations
+      state: restarted
+
+  - name: systemctl restart nms-acm
+    become: true
+    systemd:
+      name: nms-acm
+      state: restarted
+
+  - name: systemctl restart nginx
+    become: true
+    systemd:
+      name: nginx
+      state: restarted

@@ -1,0 +1,9 @@
+[nginx_management_suite_hosts]
+54.244.109.130 become=yes ansible_user=ubuntu ansible_ssh_private_key_file=/home/bwolmarans/.ssh/brettw-workstation-f5.key
+
+[nginx_dataplane_hosts]
+52.12.105.244 become=yes ansible_user=ubuntu ansible_ssh_private_key_file=/home/bwolmarans/.ssh/brettw-workstation-f5.key
+
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

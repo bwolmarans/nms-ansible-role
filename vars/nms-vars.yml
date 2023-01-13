@@ -1,0 +1,7 @@
+---
+# vars file for NMS Install
+nms_version: 2.3.0*
+nms_setup: install # install or upgrade
+nms_password: 'Testenv12#'
+
+nms_license_file: '{{playbook_dir}}/license/nms_license.txt'

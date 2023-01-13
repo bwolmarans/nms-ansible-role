@@ -1,0 +1,36 @@
+---
+- name: install NMS on NMS host(s)
+  hosts: nginx_management_suite_hosts
+  vars_files:
+    - vars/nms-vars.yml
+    - vars/nginx-vars.yml
+
+  tasks:
+    # Role for installing/upgrading NMS
+    - ansible.builtin.include_role:
+        name: install-nms
+
+- name: install NGINX Agent on data plane hosts
+  hosts: nginx_dataplane_hosts
+  vars_files:
+    - vars/nms-vars.yml
+    - vars/nginx-vars.yml
+
+  tasks:
+    # Debug module to print out ansible specific variables.
+    # - ansible.builtin.copy:
+    #     content: "{{ hostvars[groups.controller[0]] | to_nice_json }}"
+    #     dest: "/Users/jwong/dev/github/nginxinc/NGINX-Demos/nginx-plus-count/jwong-debug"
+    #   delegate_to: localhost
+
+    # NGINX Role for NGINX/+ Install / Upgrade
+    - ansible.builtin.include_role:
+        name: nginxinc.nginx
+
+    # Role for installing/upgrading NGINX Agent
+    - ansible.builtin.include_role:
+        name: install-nginx-and-agent
+      vars:
+        nms_fqdn: "{{ groups.nginx_management_suite_hosts[0] }}"
+      tags:
+        - data_nginx
