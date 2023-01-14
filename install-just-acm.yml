@@ -3,7 +3,7 @@
   hosts: nginx_management_suite_hosts
   vars_files:
     - vars/nms-vars.yml
-    - vars/nginx-vars.yml
+    - vars/nginx-for-nms-vars.yml
 
   tasks:
     # Role for installing/upgrading NGINX Instance Manager

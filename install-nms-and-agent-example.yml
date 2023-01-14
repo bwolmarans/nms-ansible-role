@@ -3,7 +3,7 @@
   hosts: nginx_management_suite_hosts
   vars_files:
     - vars/nms-vars.yml
-    - vars/nginx-vars.yml
+    - vars/nginx-for-nms-vars.yml
 
   tasks:
     # Role for installing/upgrading NMS
@@ -14,7 +14,7 @@
   hosts: nginx_dataplane_hosts
   vars_files:
     - vars/nms-vars.yml
-    - vars/nginx-vars.yml
+    - vars/nginx-dataplane-vars.yml
 
   tasks:
     # Debug module to print out ansible specific variables.
