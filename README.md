@@ -1,6 +1,6 @@
 # Ansible Playbook and example for NMS, NGINX, NGINX Agent, and ACM
 
-This is a set of roles for installing NGINX Management Suite (NMS) and NGINX+, NGINX Agent and also th NMS license, and optionally API Connectivity Manager (ACM).  There are also some example playbooks to try out the roles.
+This is a set of roles for installing NGINX Management Suite (NMS) and NGINX+, NGINX Agent and also there is a role to install the NMS license, and a role to install API Connectivity Manager (ACM).  There are also some example playbooks to try out the roles.
 
 Note: This role is still in active development. There may be unidentified issues and the role variables may change as development continues.
 
@@ -15,9 +15,9 @@ ansible-galaxy collection install community.general
 There are 4 roles defined in this project (located in `roles` directory):
 
 1. install-nms <- this installs just NMS itself, on the NMS host
-2. install-nginx-and-agent <- this installs Nginx (could be + or OSS, you can specify this in variables) and the Nginx agent.
-3. install-nms-license <- this only installs the nms license, you need to get this from your myF5 trial
-4. install-acm <- this only installs the ACM module
+2. install-nginx-and-agent <- this installs NGINX (could be + or OSS, you can specify this in variables) and the Nginx agent, on a host that is going to process data traffic a'la NGINX.
+3. install-nms-license <- this only installs the nms license, on the NMS host, and you need to get this from your myF5 trial
+4. install-acm <- this only installs the ACM module on the NMS host
 
 
 ## Usage
