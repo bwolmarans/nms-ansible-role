@@ -37,7 +37,7 @@ There are 3 important sub-folders:
 4. Anything related to NMS are in `vars/nms-vars.yml`
 5. Update `inventory` file with your NMS Host and dataplane Hosts. The requirement for this example is at least one of each.
 6. Then run `ansible-playbook -i inventory nms-and-agent-install-example.yml -b`, this will install NMS on the NMS host, and will install NGINX on the dataplane host(s) but does not do the license or ACM, you will do that next
-7. `ansible-playbook -i inventory install-just-license.yml -b`
-8. `ansible-playbook -i inventory install-just-acm.yml -b`
+7. `ansible-playbook -i inventory install-just-license-example.yml -b`
+8. `ansible-playbook -i inventory install-just-acm-example.yml -b`
 9. Now, go and log into NMS using admin/(you know the password!) and try out NIM and ACM
  
