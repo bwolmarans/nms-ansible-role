@@ -33,10 +33,10 @@ There are 3 important sub-folders:
 
 1. Copy NGINX+ certs & keys to `/licence` or update the certificate and keys paths located in `vars/nginx-dataplane-vars.yml` and `vars/nginx-for-nms-vars.yml`.  You also need to copy your NMS licenses (from myF5) to this same folder.
 2. To modify NGINX Plus install/upgrade on the NMS Host, take a look at `vars/nginx-for-nms-vars.yml` 
-3. To modify NGINX Plus install on the NGINX dataplanee host(s), take a look at `vars/nginx-dataplane-vars.yml` 
+3. To modify NGINX Plus install on the NGINX dataplane host(s), take a look at `vars/nginx-dataplane-vars.yml` 
 4. Anything related to NMS are in `vars/nms-vars.yml`
 5. Update `inventory` file with your NMS Host and dataplane Hosts. The requirement for this example is at least one of each.
-6. Then run `ansible-playbook -i inventory nms-and-agent-install-example.yml -b`, this does not do the license or ACM, you will do that next
+6. Then run `ansible-playbook -i inventory nms-and-agent-install-example.yml -b`, this will install NMS on the NMS host, and will install NGINX on the dataplane host(s) but does not do the license or ACM, you will do that next
 7. `ansible-playbook -i inventory install-just-license.yml -b`
 8. `ansible-playbook -i inventory install-just-acm.yml -b`
 9. Now, go and log into NMS using admin/(you know the password!) and try out NIM and ACM
