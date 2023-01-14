@@ -4,9 +4,10 @@ This is a set of roles for installing NGINX Management Suite (NMS) and NGINX+, N
 
 Note: This role is still in active development. There may be unidentified issues and the role variables may change as development continues.
 
-## Prerequisites
+## Ansible Role Dependencies 
 
-- Below are the required dependencies required by this role.
+You're going to need to install these first:
+
 ```shell
 ansible-galaxy install nginxinc.nginx
 ansible-galaxy collection install community.general
