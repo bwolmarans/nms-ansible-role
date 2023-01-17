@@ -1,6 +1,8 @@
 # Ansible Roles for NMS, NGINX Agent, and ACM
-## This is exploratory, and incomplete, but works reliably for an extremely simple use case, if you are looking for something more complete (and therefore more complex) check out https://github.com/TuxInvader/ansible_collection_nginx_management_suite
-## There are a few example playbooks (scroll down ) so you can try out these roles.
+### This is exploratory, and incomplete, but works reliably for an extremely simple use case, for something more complete (and therefore more complex) check out https://github.com/TuxInvader/ansible_collection_nginx_management_suite
+### This was in fact forked from https://github.com/nginxinc/ansible-role-nginx-management-suite by @jswongF5
+### There are a few example playbooks (scroll down ) so you can try out these roles.
+
 
 This is a set of roles for installing NGINX Management Suite (NMS), NGINX Agent, the NMS license, and a role to install API Connectivity Manager (ACM).  These also use the NGINX role that is a separate project (see below how to install that one. ) There are also some example playbooks to try out the roles.
 
